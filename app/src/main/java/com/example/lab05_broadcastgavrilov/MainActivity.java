@@ -1,6 +1,7 @@
 package com.example.lab05_broadcastgavrilov;
 
 import androidx.activity.result.contract.ActivityResultContracts;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -38,5 +39,19 @@ public class MainActivity extends AppCompatActivity {
     public void CloseActivity_Click(View v)
     {
 
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data)
+    {
+        if (requestCode == 123)
+        {
+            if(data != null)
+            {
+
+            }
+        }
+
+        super.onActivityResult(requestCode, resultCode, data);
     }
 }
