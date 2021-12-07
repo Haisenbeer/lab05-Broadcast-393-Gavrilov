@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">lab05-Broadcast Gavrilov</string>
+    <string name="app_creator">393 Gavrilov</string>
+    <string name="Text_on_MainActivity">Insert text to second activity</string>
+    <string name="Text_on_SecondActivity">Text from main activity</string>
+    <string name="Button_Open_SecondActivity">Open dialog</string>
+    <string name="Button_Exit">Exit app</string>
+    <string name="Button_Close">Close</string>
+    <string name="Button_OK">OK</string>
+    <string name="Flag1">Flag 1</string>
+    <string name="Flag2">Flag 2</string>
+</resources>
