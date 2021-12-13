@@ -70,46 +70,6 @@ public class MainActivity extends AppCompatActivity {
         db.show();
     }
 
-    public void onDialog_Click(View v)
-    {
-        LayoutInflater inf = getLayoutInflater();
-        View vi = inf.inflate(R.layout.activity_second2, null, false);
-
-        AlertDialog.Builder db = new AlertDialog.Builder(this);
-        db.setTitle(R.string.Title_Dialog);
-        db.setIcon(R.drawable.icon);
-        db.setCancelable(true);
-        db.setView(vi);
-
-        db.setPositiveButton(R.string.Button_OK, new DialogInterface.OnClickListener()
-        {
-            public void onClick(DialogInterface dialog, int id)
-            {
-                Intent i = new Intent();
-
-                String s = ed.getText().toString();
-                i.putExtra("TextSecond", s);
-                i.putExtra("Flag1", vi.findViewById(R.id.switch_Flag1).isEnabled());
-                i.putExtra("Flag2", vi.findViewById(R.id.switch_Flag2).isEnabled());
-
-                setResult(RESULT_OK, i);
-                finish();
-            }
-        });
-
-        db.setNegativeButton(R.string.Button_Close, new DialogInterface.OnClickListener()
-        {
-            public void onClick(DialogInterface dialog, int id)
-            {
-                setResult(RESULT_CANCELED);
-                return;
-            }
-        });
-
-        db.create();
-        db.show();
-    }
-
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data)
     {
