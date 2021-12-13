@@ -5,6 +5,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Dialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
@@ -70,10 +71,10 @@ public class MainActivity extends AppCompatActivity {
         LayoutInflater inf = getLayoutInflater();
         View vi = inf.inflate(R.layout.activity_second2, null, false);
 
-        AlertDialog.Builder db = new AlertDialog.Builder(this);
+        Dialog db = new Dialog(this);
         db.setTitle(R.string.Title_Dialog);
+        db.setContentView(vi);
         db.setCancelable(true);
-        db.setIcon(R.drawable.icon);
     }
 
     @Override
