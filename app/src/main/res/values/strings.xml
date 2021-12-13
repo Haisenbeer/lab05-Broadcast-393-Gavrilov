@@ -3,7 +3,9 @@
     <string name="app_creator">393 Gavrilov</string>
     <string name="Text_on_MainActivity">Insert text to second activity</string>
     <string name="Text_on_SecondActivity">Text from main activity</string>
-    <string name="Button_Open_SecondActivity">Open dialog</string>
+    <string name="Button_Open_SecondActivity">Open second activity</string>
+    <string name="Button_Open_Dialog">Open dialog</string>
+    <string name="Title_Dialog">Second activity in dialog</string>
     <string name="Button_Exit">Exit app</string>
     <string name="Button_Close">Close</string>
     <string name="Button_OK">OK</string>

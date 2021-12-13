@@ -32,19 +32,34 @@
 
             <Button
                 android:id="@+id/button_OpenDialog"
+                style="@style/Widget.AppCompat.Button.Small"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:onClick="OpenSecondActivity_Click"
+                android:onClick="openSecondActivity_Click"
                 android:text="@string/Button_Open_SecondActivity" />
 
             <Button
                 android:id="@+id/button_ExitApp"
+                style="@style/Widget.AppCompat.Button.Small"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:onClick="CloseActivity_Click"
+                android:onClick="closeActivity_Click"
                 android:text="@string/Button_Exit" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" >
+
+            <Button
+                android:id="@+id/button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:onClick="onDialog_Click"
+                android:text="@string/Button_Open_Dialog" />
         </TableRow>
 
         <TableRow

@@ -2,14 +2,17 @@ package com.example.lab05_broadcastgavrilov;
 
 import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.CheckBox;
 import android.widget.EditText;
-import android.widget.TextView;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -26,7 +29,7 @@ public class MainActivity extends AppCompatActivity {
         ch2 = findViewById(R.id.checkBox_Flag2);
     }
 
-    public void OpenSecondActivity_Click(View v)
+    public void openSecondActivity_Click(View v)
     {
         Intent i = new Intent(this, SecondActivity.class);
         i.putExtra("TextMain", ed.getText().toString());
@@ -36,9 +39,41 @@ public class MainActivity extends AppCompatActivity {
         startActivityForResult(i, 123);
     }
 
-    public void CloseActivity_Click(View v)
+    public void closeActivity_Click(View v)
     {
+        AlertDialog.Builder db = new AlertDialog.Builder(this);
+        db.setTitle("Exit");
+        db.setMessage("Are you sure you want to get out?");
+        db.setCancelable(true);
+        db.setIcon(R.drawable.icon);
+        db.setPositiveButton("YES", new DialogInterface.OnClickListener()
+        {
+            public void onClick(DialogInterface dialog, int id)
+            {
+                //Выход из приложения
+                finish();
+            }
+        });
 
+        db.setNegativeButton("NO", new DialogInterface.OnClickListener()
+        {
+            public void onClick(DialogInterface dialog, int id)
+            {
+                //Возврат в приложение приложения
+                return;
+            }
+        });
+    }
+
+    public void onDialog_Click(View v)
+    {
+        LayoutInflater inf = getLayoutInflater();
+        View vi = inf.inflate(R.layout.activity_second2, null, false);
+
+        AlertDialog.Builder db = new AlertDialog.Builder(this);
+        db.setTitle(R.string.Title_Dialog);
+        db.setCancelable(true);
+        db.setIcon(R.drawable.icon);
     }
 
     @Override
@@ -46,9 +81,17 @@ public class MainActivity extends AppCompatActivity {
     {
         if (requestCode == 123)
         {
-            if(data != null)
+            if(resultCode == RESULT_OK && data != null)
             {
+                String s = data.getStringExtra("TextSecond");
+                boolean flag1 = data.getBooleanExtra("Flag1",false);
+                boolean flag2 = data.getBooleanExtra("Flag2",false);
 
+                ed.setText(s);
+                ch1.setChecked(flag1);
+                ch2.setChecked(flag2);
+
+                Toast.makeText(this, s, Toast.LENGTH_SHORT).show();
             }
         }
 

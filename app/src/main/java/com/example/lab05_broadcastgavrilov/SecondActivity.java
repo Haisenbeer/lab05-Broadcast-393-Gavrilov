@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.EditText;
 import android.widget.Switch;
 
@@ -35,5 +36,22 @@ public class SecondActivity extends AppCompatActivity {
         sw2.setChecked(flag2);
     }
 
+    public void onOK_Click(View v)
+    {
+        Intent i = new Intent();
 
+        String s = ed.getText().toString();
+        i.putExtra("TextSecond", s);
+        i.putExtra("Flag1", sw1.isChecked());
+        i.putExtra("Flag2", sw2.isChecked());
+
+        setResult(RESULT_OK, i);
+        finish();
+    }
+
+    public void onClose_Click(View v)
+    {
+        setResult(RESULT_CANCELED);
+        finish();
+    }
 }
